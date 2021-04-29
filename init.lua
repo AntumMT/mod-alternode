@@ -96,7 +96,14 @@ core.register_chatcommand("setmeta", {
 		elseif vtype == "float" then
 			retval = alternode.set_float(pos, key, tonumber(value))
 		elseif vtype == "string" then
-			retval = alternode.set(pos, key, value)
+			local rem = {}
+			for idx, word in ipairs(plist) do
+				if idx > 5 then
+					table.insert(rem, word)
+				end
+			end
+
+			retval = alternode.set(pos, key, table.concat(rem, " "))
 		else
 			core.chat_send_player(player,
 				"Unknown meta data type: " .. vtype)
