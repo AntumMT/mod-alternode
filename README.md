@@ -18,3 +18,7 @@ Invoke `/giveme alternode:infostick`. Use the infostick on a node to recieve coo
   - prints the value of `key` in the node's meta data at `x,y,z`.
 - */setmeta <x> <y> <z> string|int|float <key> <new_value>*
   - Sets the value of `key` in the meta data of node at `x,y,z`.
+
+### Links:
+
+- [TODO](TODO.txt)
