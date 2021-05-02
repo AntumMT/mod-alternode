@@ -1,4 +1,3 @@
 
 TODO:
-- show node name when using infostick
-- remove 'string|int|float' (not required for setting meta)
+- add localization support
