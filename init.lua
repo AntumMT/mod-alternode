@@ -6,7 +6,7 @@ alternode.name = core.get_current_modname()
 core.register_craftitem(alternode.name .. ":infostick", {
 	description = "Tool for retrieving information about node",
 	short_description = "Info Stick",
-	inventory_image = "default_stick.png",
+	inventory_image = "alternode_infostick.png",
 	stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if not user:is_player() then return end

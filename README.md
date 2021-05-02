@@ -1,12 +1,13 @@
-## Node Manipulation
+## Alternode: Node Meta Manipulation
 
 ### Description:
 
-Mod that allows administrators with *server* privilege to examine & alter node meta data.
+A [Minetest](http://minetest.net/) mod that allows administrators with *server* privilege to examine & alter node meta data.
 
 ### Licensing:
 
-- [MIT](LICENSE.txt)
+- Code: [MIT](LICENSE.txt)
+- Textures: CC0
 
 ### Usage:
 
@@ -21,4 +22,5 @@ Invoke `/giveme alternode:infostick`. Use the infostick on a node to recieve coo
 
 ### Links:
 
+- [Git repo](http://github.com/AntumMT/mod-alternode)
 - [TODO](TODO.txt)
