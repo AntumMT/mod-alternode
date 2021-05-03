@@ -11,7 +11,7 @@ A [Minetest](http://minetest.net/) mod that allows administrators with *server* 
 
 ### Usage:
 
-Invoke `/giveme alternode:infostick`. Use the infostick on a node to recieve coordinate & other information.
+Invoke `/giveme alternode:infostick`. Use the infostick on a node to receive coordinate & other information.
 
 **Chat commands:**
 
@@ -22,5 +22,6 @@ Invoke `/giveme alternode:infostick`. Use the infostick on a node to recieve coo
 
 ### Links:
 
+- [Forum](https://forum.minetest.net/viewtopic.php?t=26667)
 - [Git repo](http://github.com/AntumMT/mod-alternode)
 - [TODO](TODO.txt)
