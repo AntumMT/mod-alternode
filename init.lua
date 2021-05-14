@@ -38,7 +38,7 @@ core.register_craftitem(alternode.name .. ":infostick", {
 		local infostring = S("pos: x@=@1, y@=@2, z@=@3; name@=@4",
 			tostring(pos.x), tostring(pos.y), tostring(pos.z), node.name)
 
-		for _, key in ipairs({"infotext", "owner"}) do
+		for _, key in ipairs({"id", "infotext", "owner"}) do
 			local value = meta:get_string(key)
 			if value and value ~= "" then
 				infostring = infostring .. "; "
