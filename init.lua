@@ -6,6 +6,7 @@ alternode.modpath = core.get_modpath(alternode.modname)
 local scripts = {
 	"api",
 	"commands",
+	"formspec",
 	"items",
 }
 
