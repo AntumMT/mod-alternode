@@ -1,3 +1,4 @@
 
 TODO:
 - specify that "pos" & "name" are NOT meta data when using infostick
+- create formspec for setting meta with GUI
