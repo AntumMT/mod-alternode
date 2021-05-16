@@ -8,6 +8,7 @@ local scripts = {
 	"commands",
 	"formspec",
 	"infostick",
+	"pencil",
 }
 
 for _, script in ipairs(scripts) do
