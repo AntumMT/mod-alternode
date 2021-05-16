@@ -226,8 +226,35 @@ core.register_craftitem(alternode.modname .. ":wand", {
 		else
 			core.chat_send_player(pname, "This node is owned by " .. node_owner)
 		end
-
-		return true
 	end,
 })
 core.register_alias("ownit:wand", alternode.modname .. ":wand")
+
+-- crafting of wand
+local wand = {
+	ing_head = nil,
+	ing_handle = nil,
+}
+
+if core.registered_items["gems_encrustable:aquamarine"] then
+	wand.ing_head = "gems_encrustable:aquamarine"
+elseif core.registered_items["gems:aquamarine"] then
+	wand.ing_head = "gems:aquamarine"
+end
+
+if core.registered_items["gems_encrustable:opal"] then
+	wand.ing_handle = "gems_encrustable:opal"
+elseif core.registered_items["gems:opal"] then
+	wand.ing_handle = "gems:opal"
+end
+
+if wand.ing_head and wand.ing_handle then
+	core.register_craft({
+		output = alternode.modname .. ":wand",
+		recipe = {
+			{"", "", wand.ing_head},
+			{"", wand.ing_handle, ""},
+			{wand.ing_handle, "", ""},
+		},
+	})
+end
