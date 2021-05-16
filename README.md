@@ -4,11 +4,6 @@
 
 A [Minetest](http://minetest.net/) mod that allows administrators with *server* privilege to examine & alter node meta data. Additionally, a pencil tool is provided with limited use for players to alter *infotext* meta value.
 
-### Licensing:
-
-- Code: [MIT](LICENSE.txt)
-- Textures: CC0
-
 ### Usage:
 
 **Chat commands:**
@@ -27,6 +22,13 @@ Invoke `/giveme alternode:infostick`. Use the infostick on a node to receive nod
 **Pencil:**
 
 The `alternode:pencil` is a tool for players to set/unset the `infotext` meta value of nodes within protected/owned areas.
+
+### Licensing:
+
+- Code: [MIT](LICENSE.txt)
+- Textures: CC0
+  - `alternode_infostick.png & alternode_pencil.png:` by AntumDeluge
+  - `alternode_wand.png:` by [rcorre](https://opengameart.org/node/40598)
 
 ### Links:
 
