@@ -6,7 +6,7 @@ A [Minetest](http://minetest.net/) mod that allows administrators with *server* 
 
 ### Usage:
 
-**Chat commands:**
+#### Chat commands:
 
 - */getmeta <x> <y> <z> <key>*
   - prints the value of `key` in meta data of node at `x,y,z`.
@@ -15,6 +15,8 @@ A [Minetest](http://minetest.net/) mod that allows administrators with *server* 
 - */unsetmeta <x> <y> <z> <key>*
   - Unsets the value of `key` in meta data of node at `x,y,z`.
 
+#### Tools:
+
 **Info stick:**
 
 Invoke `/giveme alternode:infostick`. Use the infostick on a node to receive node coordinates, name, & some select meta info.
@@ -22,6 +24,13 @@ Invoke `/giveme alternode:infostick`. Use the infostick on a node to receive nod
 **Pencil:**
 
 The `alternode:pencil` is a tool for players to set/unset the `infotext` meta value of nodes within protected/owned areas.
+
+- *left-click (use):* Opens formspec to set/unset infotext meta attribute.
+
+**Wand:**
+
+- *left-click (use):* Sets/Unsets user as owner.
+- *right-click (place):* Checks owner status & outputs to chat log.
 
 ### Licensing:
 
