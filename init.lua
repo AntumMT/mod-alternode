@@ -7,7 +7,7 @@ local scripts = {
 	"api",
 	"commands",
 	"formspec",
-	"items",
+	"infostick",
 }
 
 for _, script in ipairs(scripts) do
