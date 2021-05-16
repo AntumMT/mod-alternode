@@ -23,10 +23,10 @@ local function check_node_pos(target)
 end
 
 
-core.register_craftitem(ownit.modname .. ":wand", {
+core.register_craftitem(alternode.modname .. ":wand", {
 	description = "Tool for setting node owner",
 	short_description = "Ownit Wand",
-	inventory_image = "ownit_wand.png",
+	inventory_image = "alternode_wand.png",
 	stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if not user:is_player() then return end
@@ -75,3 +75,4 @@ core.register_craftitem(ownit.modname .. ":wand", {
 		return true
 	end,
 })
+core.register_alias("ownit:wand", alternode.modname .. ":wand")
