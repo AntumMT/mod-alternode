@@ -51,8 +51,8 @@ core.register_craftitem(alternode.modname .. ":pencil", {
 		local formspec = "formspec_version[4]"
 			.. "size[6,4]"
 			.. "textarea[1,1;4,1.5;input;Infotext;" .. infotext .. "]"
-			.. "button_exit[1.5,2.75;1.25,0.75;btn_set;Set]"
-			.. "button_exit[3.3,2.75;1.25,0.75;btn_unset;Unset]"
+			.. "button_exit[1.5,2.75;1.25,0.75;btn_write;Write]"
+			.. "button_exit[3.3,2.75;1.25,0.75;btn_erase;Erase]"
 
 		-- store pos info for retrieval in callbacks
 		user:get_meta():set_string(alternode.modname .. ":pencil:pos", core.serialize(pos))
@@ -82,9 +82,13 @@ core.register_on_player_receive_fields(function(player, formname, fields)
 		local pos = core.deserialize(pmeta:get_string(alternode.modname .. ":pencil:pos"))
 		local nmeta = core.get_meta(pos)
 
-		if fields.btn_set then
-			nmeta:set_string("infotext", fields.input)
-		elseif fields.btn_unset then
+		if fields.btn_write then
+			if fields.input:trim() == "" then
+				nmeta:set_string("infotext", nil)
+			else
+				nmeta:set_string("infotext", fields.input)
+			end
+		elseif fields.btn_erase then
 			nmeta:set_string("infotext", nil)
 		end
 
