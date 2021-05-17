@@ -1,6 +1,4 @@
 
-local S = core.get_translator(alternode.modname)
-
 
 -- pencil
 local pencil = {

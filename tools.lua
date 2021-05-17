@@ -119,16 +119,16 @@ core.register_craftitem(alternode.modname .. ":pencil", {
 
 		local pname = user:get_player_name()
 		if not is_area_owner(pos, pname) then
-			core.chat_send_player(pname, "You cannot alter nodes in areas you do not own")
+			core.chat_send_player(pname, S("You cannot alter nodes in areas you do not own"))
 			return
 		end
 
 		local infotext = core.get_meta(pos):get_string("infotext")
 		local formspec = "formspec_version[4]"
 			.. "size[6,4]"
-			.. "textarea[1,1;4,1.5;input;Infotext;" .. infotext .. "]"
-			.. "button_exit[1.5,2.75;1.25,0.75;btn_write;Write]"
-			.. "button_exit[3.3,2.75;1.25,0.75;btn_erase;Erase]"
+			.. "textarea[1,1;4,1.5;input;" .. S("Infotext") .. ";" .. infotext .. "]"
+			.. "button_exit[1.5,2.75;1.25,0.75;btn_write;" .. S("Write") .. "]"
+			.. "button_exit[3.3,2.75;1.25,0.75;btn_erase;" .. S("Erase") .. "]"
 
 		-- store pos info for retrieval in callbacks
 		user:get_meta():set_string(alternode.modname .. ":pencil:pos", core.serialize(pos))
@@ -165,8 +165,8 @@ end)
 --  @use
 --  @place
 core.register_craftitem(alternode.modname .. ":wand", {
-	description = "Tool for setting node owner",
-	short_description = "Ownit Wand",
+	description = S("Tool for setting node owner"),
+	short_description = S("Ownit Wand"),
 	inventory_image = "alternode_wand.png",
 	stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
@@ -179,7 +179,7 @@ core.register_craftitem(alternode.modname .. ":wand", {
 		local node_owner = nmeta:get_string("owner")
 
 		if node_owner ~= "" and pname ~= node_owner then
-			core.chat_send_player(pname, "You cannot take ownership of a node owned by " .. node_owner)
+			core.chat_send_player(pname, S("You cannot take ownership of a node owned by @1", node_owner))
 			return
 		end
 
@@ -188,15 +188,15 @@ core.register_craftitem(alternode.modname .. ":wand", {
 
 		if unown then
 			nmeta:set_string("owner", nil)
-			core.chat_send_player(pname, "You no longer own this node")
+			core.chat_send_player(pname, S("You no longer own this node"))
 		else
 			if not is_area_owner(pos, pname) then
-				core.chat_send_player(pname, "You cannot take ownership of nodes in areas you do not own")
+				core.chat_send_player(pname, S("You cannot take ownership of nodes in areas you do not own"))
 				return
 			end
 
 			nmeta:set_string("owner", pname)
-			core.chat_send_player(pname, "You now own this node")
+			core.chat_send_player(pname, S("You now own this node"))
 		end
 	end,
 	on_place = function(itemstack, placer, pointed_thing)
@@ -208,9 +208,9 @@ core.register_craftitem(alternode.modname .. ":wand", {
 		local node_owner = core.get_meta(pos):get_string("owner")
 
 		if node_owner == "" then
-			core.chat_send_player(pname, "This node is unowned")
+			core.chat_send_player(pname, S("This node is unowned"))
 		else
-			core.chat_send_player(pname, "This node is owned by " .. node_owner)
+			core.chat_send_player(pname, S("This node is owned by @1", node_owner))
 		end
 	end,
 })
