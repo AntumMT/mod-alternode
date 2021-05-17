@@ -77,14 +77,13 @@ core.register_craftitem(alternode.modname .. ":infostick", {
 		local pos, node = check_node(pointed_thing, pname)
 		if not pos then return end
 
-		local nmeta = core.get_meta(pos)
+		-- store pos info for retrieval in callbacks
+		local pmeta = user:get_meta()
+		pmeta:set_string(alternode.modname .. ":pos", core.serialize(pos))
+		pmeta:set_string(alternode.modname .. ":node", core.serialize(node))
 
-		local infostring = S("Pos: x@=@1, y@=@2, z@=@3; Name: @4; Select meta info:",
-			tostring(pos.x), tostring(pos.y), tostring(pos.z), node.name)
-		-- some commonly used meta keys
-		infostring = infostring .. misc.format_meta_values(nmeta, {"id", "infotext", "owner"})
-
-		core.chat_send_player(pname, infostring)
+		core.show_formspec(pname, alternode.modname .. ":infostick",
+			alternode.get_infostick_formspec(pos, node, user))
 	end,
 	on_place = function(itemstack, placer, pointed_thing)
 		if not placer:is_player() then return end
@@ -94,13 +93,14 @@ core.register_craftitem(alternode.modname .. ":infostick", {
 		local pos, node = check_node(pointed_thing, pname)
 		if not pos then return end
 
-		-- store pos info for retrieval in callbacks
-		local pmeta = placer:get_meta()
-		pmeta:set_string(alternode.modname .. ":pos", core.serialize(pos))
-		pmeta:set_string(alternode.modname .. ":node", core.serialize(node))
+		local nmeta = core.get_meta(pos)
 
-		core.show_formspec(pname, alternode.modname .. ":infostick",
-			alternode.get_infostick_formspec(pos, node, placer))
+		local infostring = S("Pos: x@=@1, y@=@2, z@=@3; Name: @4; Select meta info:",
+			tostring(pos.x), tostring(pos.y), tostring(pos.z), node.name)
+		-- some commonly used meta keys
+		infostring = infostring .. misc.format_meta_values(nmeta, {"id", "infotext", "owner"})
+
+		core.chat_send_player(pname, infostring)
 	end,
 })
 

@@ -21,8 +21,8 @@ A [Minetest](http://minetest.net/) mod that allows administrators with *server* 
 
 Invoke `/giveme alternode:infostick`. Use the infostick on a node to receive node coordinates, name, & some select meta info.
 
-- *left-click (use):* Print node coordinates, name, & some select meta info.
-- *right-click (place):* Opens formspec to retrieve & set/unset meta attributes.
+- *left-click (use):* Opens formspec to retrieve & set/unset meta attributes.
+- *right-click (place):* Print node coordinates, name, & some select meta info.
 
 **Pencil:**
 
