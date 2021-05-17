@@ -2,6 +2,7 @@
 local S = core.get_translator(alternode.modname)
 
 local use_s_protect = core.global_exists("s_protect")
+local misc = dofile(alternode.modpath .. "/misc_functions.lua")
 
 
 local function check_permissions(player)
@@ -36,7 +37,7 @@ end
 --  @function check_node
 --  @param target pointed_thing
 --  @param pname Name of player pointing.
---  @return `pos` if the pointed_thing is a node, `nil` otherwise.
+--  @return `pos`, `node` if the pointed_thing is a node, `nil` otherwise.
 local function check_node(target, pname)
 	if not target then return false end
 
@@ -73,21 +74,15 @@ core.register_craftitem(alternode.modname .. ":infostick", {
 		if not check_permissions(user) then return end
 
 		local pname = user:get_player_name()
-		local pos = check_node(pointed_thing, pname)
+		local pos, node = check_node(pointed_thing, pname)
 		if not pos then return end
 
 		local nmeta = core.get_meta(pos)
 
-		local infostring = S("pos: x@=@1, y@=@2, z@=@3; name@=@4",
+		local infostring = S("Pos: x@=@1, y@=@2, z@=@3; Name: @4; Select meta info:",
 			tostring(pos.x), tostring(pos.y), tostring(pos.z), node.name)
-
-		for _, key in ipairs({"id", "infotext", "owner"}) do
-			local value = nmeta:get_string(key)
-			if value and value ~= "" then
-				infostring = infostring .. "; "
-					.. key .. "=" .. value
-			end
-		end
+		-- some commonly used meta keys
+		infostring = infostring .. misc.format_meta_values(nmeta, {"id", "infotext", "owner"})
 
 		core.chat_send_player(pname, infostring)
 	end,
@@ -95,12 +90,15 @@ core.register_craftitem(alternode.modname .. ":infostick", {
 		if not placer:is_player() then return end
 		if not check_permissions(placer) then return end
 
-		local pname = user:get_player_name()
+		local pname = placer:get_player_name()
 		local pos, node = check_node(pointed_thing, pname)
 		if not pos then return end
 
 		-- store pos info for retrieval in callbacks
-		user:get_meta():set_string(alternode.modname .. ":infostick:pos", core.serialize(pos))
+		local pmeta = placer:get_meta()
+		pmeta:set_string(alternode.modname .. ":pos", core.serialize(pos))
+		pmeta:set_string(alternode.modname .. ":node", core.serialize(node))
+
 		core.show_formspec(pname, alternode.modname .. ":infostick",
 			alternode.get_infostick_formspec(pos, node, placer))
 	end,
@@ -130,7 +128,7 @@ core.register_craftitem(alternode.modname .. ":pencil", {
 		end
 
 		-- store pos info for retrieval in callbacks
-		user:get_meta():set_string(alternode.modname .. ":pencil:pos", core.serialize(pos))
+		user:get_meta():set_string(alternode.modname .. ":pos", core.serialize(pos))
 		core.show_formspec(pname, alternode.modname .. ":pencil",
 			alternode.get_pencil_formspec(pos))
 	end,
