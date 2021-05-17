@@ -137,20 +137,6 @@ core.register_craftitem(alternode.modname .. ":pencil", {
 })
 
 
--- craft recipe
--- FIXME: don't need to depend on default if "group:stick" exists
-if core.global_exists("default") and core.global_exists("technic") then
-	core.register_craft({
-		output = alternode.modname .. ":pencil",
-		recipe = {
-			{"", "", "technic:lead_lump"},
-			{"", "group:stick", ""},
-			{"technic:rubber", "", ""},
-		},
-	})
-end
-
-
 core.register_on_player_receive_fields(function(player, formname, fields)
 	if formname == alternode.modname .. ":pencil" then
 		-- FIXME: how to get node meta without storing in player meta?
@@ -229,32 +215,3 @@ core.register_craftitem(alternode.modname .. ":wand", {
 	end,
 })
 core.register_alias("ownit:wand", alternode.modname .. ":wand")
-
--- crafting of wand
-local wand = {
-	ing_head = nil,
-	ing_handle = nil,
-}
-
-if core.registered_items["gems_encrustable:aquamarine"] then
-	wand.ing_head = "gems_encrustable:aquamarine"
-elseif core.registered_items["gems:aquamarine"] then
-	wand.ing_head = "gems:aquamarine"
-end
-
-if core.registered_items["gems_encrustable:opal"] then
-	wand.ing_handle = "gems_encrustable:opal"
-elseif core.registered_items["gems:opal"] then
-	wand.ing_handle = "gems:opal"
-end
-
-if wand.ing_head and wand.ing_handle then
-	core.register_craft({
-		output = alternode.modname .. ":wand",
-		recipe = {
-			{"", "", wand.ing_head},
-			{"", wand.ing_handle, ""},
-			{wand.ing_handle, "", ""},
-		},
-	})
-end
