@@ -30,12 +30,31 @@ local function is_area_owner(pos, pname)
 	return false
 end
 
-local function check_node_pos(target)
-		if target.type ~= "node" then return end
-		local pos = core.get_pointed_thing_position(target, false)
-		if not core.get_node_or_nil(pos) then return end
+--- Checks if a thing pointed at is a node.
+--
+--  @local
+--  @function check_node
+--  @param target pointed_thing
+--  @param pname Name of player pointing.
+--  @return `pos` if the pointed_thing is a node, `nil` otherwise.
+local function check_node(target, pname)
+	if not target then return false end
 
-		return pos
+	local pos = nil
+	local node = nil
+	if target.type == "node" then
+		pos = core.get_pointed_thing_position(target, false)
+		node = core.get_node_or_nil(pos)
+		if not node then
+			pos = nil
+		end
+	end
+
+	if not pos then
+		core.chat_send_player(pname, S("This item only works on nodes"))
+	end
+
+	return pos, node
 end
 
 
@@ -54,25 +73,16 @@ core.register_craftitem(alternode.modname .. ":infostick", {
 		if not check_permissions(user) then return end
 
 		local pname = user:get_player_name()
+		local pos = check_node(pointed_thing, pname)
+		if not pos then return end
 
-		if pointed_thing.type ~= "node" then
-			core.chat_send_player(pname, S("This item only works on nodes"))
-			return
-		end
-
-		local pos = core.get_pointed_thing_position(pointed_thing, false)
-		local node = core.get_node_or_nil(pos)
-		if not node then
-			core.chat_send_player(pname, S("That doesn't seem to be a proper node"))
-			return
-		end
-		local meta = core.get_meta(pos)
+		local nmeta = core.get_meta(pos)
 
 		local infostring = S("pos: x@=@1, y@=@2, z@=@3; name@=@4",
 			tostring(pos.x), tostring(pos.y), tostring(pos.z), node.name)
 
 		for _, key in ipairs({"id", "infotext", "owner"}) do
-			local value = meta:get_string(key)
+			local value = nmeta:get_string(key)
 			if value and value ~= "" then
 				infostring = infostring .. "; "
 					.. key .. "=" .. value
@@ -86,18 +96,7 @@ core.register_craftitem(alternode.modname .. ":infostick", {
 		if not check_permissions(placer) then return end
 
 		local pname = user:get_player_name()
-
-		if pointed_thing.type ~= "node" then
-			core.chat_send_player(pname, S("This item only works on nodes"))
-			return
-		end
-
-		local pos = core.get_pointed_thing_position(pointed_thing, false)
-		local node = core.get_node_or_nil(pos)
-		if not node then
-			core.chat_send_player(pname, S("That doesn't seem to be a proper node"))
-			return
-		end
+		if not check_node(pointed_thing, pname) then return end
 
 		alternode.show_formspec(pos, node, placer)
 	end,
@@ -116,15 +115,10 @@ core.register_craftitem(alternode.modname .. ":pencil", {
 	stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if not user:is_player() then return end
-		local pos = check_node_pos(pointed_thing)
-		if not pos then return end
 
 		local pname = user:get_player_name()
-
-		if pointed_thing.type ~= "node" then
-			core.chat_send_player(pname, S("This item only works on nodes"))
-			return
-		end
+		local pos = check_node(pointed_thing, pname)
+		if not pos then return end
 
 		if not is_area_owner(pos, pname) then
 			core.chat_send_player(pname, S("You cannot alter nodes in areas you do not own"))
@@ -179,10 +173,11 @@ core.register_craftitem(alternode.modname .. ":key", {
 	stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if not user:is_player() then return end
-		local pos = check_node_pos(pointed_thing)
-		if not pos then return end
 
 		local pname = user:get_player_name()
+		local pos = check_node(pointed_thing, pname)
+		if not pos then return end
+
 		local nmeta = core.get_meta(pos)
 		local node_owner = nmeta:get_string("owner")
 
@@ -209,10 +204,11 @@ core.register_craftitem(alternode.modname .. ":key", {
 	end,
 	on_place = function(itemstack, placer, pointed_thing)
 		if not placer:is_player() then return end
-		local pos = check_node_pos(pointed_thing)
+
+		local pname = user:get_player_name()
+		local pos = check_node(pointed_thing, pname)
 		if not pos then return end
 
-		local pname = placer:get_player_name()
 		local node_owner = core.get_meta(pos):get_string("owner")
 
 		if node_owner == "" then

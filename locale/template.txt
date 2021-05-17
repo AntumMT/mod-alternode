@@ -22,7 +22,6 @@ Info Stick=
 You do not have privileges to use this item (missing priviliges: @1)=
 This item only works on nodes=
 Tool for retrieving information about a node=
-That doesn't seem to be a proper node=
 pos: x@=@1, y@=@2, z@=@3; name@=@4=
 
 Pencil=
