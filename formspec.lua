@@ -2,7 +2,8 @@
 local S = core.get_translator(alternode.modname)
 
 
-function alternode.show_formspec(pos, node, player)
+-- TODO: add fields for get, set, & unset meta data
+function alternode.get_infostick_formspec(pos, node, player)
 	local nmeta = core.get_meta(pos)
 	local infostring = S("pos: x@=@1, y@=@2, z@=@3; name@=@4",
 		tostring(pos.x), tostring(pos.y), tostring(pos.z), node.name)
@@ -23,7 +24,5 @@ function alternode.show_formspec(pos, node, player)
 		.. "size[16,10]"
 		.. "label[0.15,0.25;" .. core.formspec_escape(infostring) .. "]"
 
-	-- TODO: add fields for get, set, & unset meta data
-
-	core.show_formspec(player:get_player_name(), alternode.modname .. ":meta", formspec)
+	return formspec
 end

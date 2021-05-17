@@ -96,9 +96,13 @@ core.register_craftitem(alternode.modname .. ":infostick", {
 		if not check_permissions(placer) then return end
 
 		local pname = user:get_player_name()
-		if not check_node(pointed_thing, pname) then return end
+		local pos, node = check_node(pointed_thing, pname)
+		if not pos then return end
 
-		alternode.show_formspec(pos, node, placer)
+		-- store pos info for retrieval in callbacks
+		user:get_meta():set_string(alternode.modname .. ":infostick:pos", core.serialize(pos))
+		core.show_formspec(pname, alternode.modname .. ":infostick",
+			alternode.get_infostick_formspec(pos, node, placer))
 	end,
 })
 
