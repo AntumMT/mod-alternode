@@ -191,7 +191,7 @@ core.register_craftitem(alternode.modname .. ":wand", {
 			core.chat_send_player(pname, "You no longer own this node")
 		else
 			if not is_area_owner(pos, pname) then
-				core.chat_send_player(pname, "You cannot take ownership of a node that is not in an area owned by you")
+				core.chat_send_player(pname, "You cannot take ownership of nodes in areas you do not own")
 				return
 			end
 
