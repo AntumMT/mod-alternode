@@ -2,6 +2,11 @@
 local S = core.get_translator(alternode.modname)
 
 
+--- Formspec definitions.
+--
+--  @section fs_def
+
+
 --- Retrieves formspec layout for `alternode:infostick` item.
 --
 --  TODO: add fields for get, set, & unset meta data
@@ -50,3 +55,31 @@ function alternode.get_pencil_formspec(pos)
 
 	return formspec
 end
+
+
+--- Formspec event handling.
+--
+--  @section fs_event
+
+
+core.register_on_player_receive_fields(function(player, formname, fields)
+	if formname == alternode.modname .. ":pencil" then
+		-- FIXME: how to get node meta without storing in player meta?
+		local pmeta = player:get_meta()
+		local pos = core.deserialize(pmeta:get_string(alternode.modname .. ":pencil:pos"))
+		local nmeta = core.get_meta(pos)
+
+		if fields.btn_write then
+			if fields.input:trim() == "" then
+				nmeta:set_string("infotext", nil)
+			else
+				nmeta:set_string("infotext", fields.input)
+			end
+		elseif fields.btn_erase then
+			nmeta:set_string("infotext", nil)
+		end
+
+		-- clear position info from player meta
+		pmeta:set_string(alternode.modname .. ":pencil:pos", nil)
+	end
+end)

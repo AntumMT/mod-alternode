@@ -137,28 +137,6 @@ core.register_craftitem(alternode.modname .. ":pencil", {
 })
 
 
-core.register_on_player_receive_fields(function(player, formname, fields)
-	if formname == alternode.modname .. ":pencil" then
-		-- FIXME: how to get node meta without storing in player meta?
-		local pmeta = player:get_meta()
-		local pos = core.deserialize(pmeta:get_string(alternode.modname .. ":pencil:pos"))
-		local nmeta = core.get_meta(pos)
-
-		if fields.btn_write then
-			if fields.input:trim() == "" then
-				nmeta:set_string("infotext", nil)
-			else
-				nmeta:set_string("infotext", fields.input)
-			end
-		elseif fields.btn_erase then
-			nmeta:set_string("infotext", nil)
-		end
-
-		pmeta:set_string(alternode.modname .. ":pencil:pos", nil)
-	end
-end)
-
-
 --- Player tool to set/unset *owner* meta value.
 --
 --  @craftitem alternode:key
