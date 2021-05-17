@@ -169,13 +169,13 @@ end)
 
 --- Player tool to set/unset *owner* meta value.
 --
---  @craftitem alternode:wand
+--  @craftitem alternode:key
 --  @use
 --  @place
-core.register_craftitem(alternode.modname .. ":wand", {
+core.register_craftitem(alternode.modname .. ":key", {
 	description = S("Tool for setting node owner"),
-	short_description = S("Ownit Wand"),
-	inventory_image = "alternode_wand.png",
+	short_description = S("Node Key"),
+	inventory_image = "alternode_key.png",
 	stack_max = 1,
 	on_use = function(itemstack, user, pointed_thing)
 		if not user:is_player() then return end
@@ -222,4 +222,5 @@ core.register_craftitem(alternode.modname .. ":wand", {
 		end
 	end,
 })
-core.register_alias("ownit:wand", alternode.modname .. ":wand")
+core.register_alias("ownit:wand", alternode.modname .. ":key")
+core.register_alias(alternode.modname .. ":wand", alternode.modname .. ":key")
