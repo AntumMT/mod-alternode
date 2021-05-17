@@ -129,16 +129,10 @@ core.register_craftitem(alternode.modname .. ":pencil", {
 			return
 		end
 
-		local infotext = core.get_meta(pos):get_string("infotext")
-		local formspec = "formspec_version[4]"
-			.. "size[6,4]"
-			.. "textarea[1,1;4,1.5;input;" .. S("Infotext") .. ";" .. infotext .. "]"
-			.. "button_exit[1.5,2.75;1.25,0.75;btn_write;" .. S("Write") .. "]"
-			.. "button_exit[3.3,2.75;1.25,0.75;btn_erase;" .. S("Erase") .. "]"
-
 		-- store pos info for retrieval in callbacks
 		user:get_meta():set_string(alternode.modname .. ":pencil:pos", core.serialize(pos))
-		core.show_formspec(pname, alternode.modname .. ":pencil", formspec)
+		core.show_formspec(pname, alternode.modname .. ":pencil",
+			alternode.get_pencil_formspec(pos))
 	end,
 })
 
