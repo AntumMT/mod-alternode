@@ -2,7 +2,7 @@
 
 ### Description:
 
-A [Minetest](http://minetest.net/) mod that allows administrators with *server* privilege to examine & alter node meta data. Additionally, a pencil tool is provided with limited use for players to alter *infotext* meta value.
+A [Minetest](http://minetest.net/) mod that allows administrators with *server* privilege to examine & alter node meta data. Additionally, a pencil & wand tools are provided with limited use for players to alter *infotext* & *owner* meta value.
 
 ### Usage:
 
