@@ -66,6 +66,8 @@ end
 
 --- Admin tool to retrieve node node coordinates, name, & some select meta info.
 --
+--  Only players with the `server` privilege can use this item
+--
 --  @craftitem alternode:infostick
 --  @use Opens formspec to retrieve & set/unset meta attributes.
 --  @place Print node coordinates, name, & some select meta info.
