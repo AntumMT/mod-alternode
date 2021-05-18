@@ -188,7 +188,7 @@ core.register_craftitem(alternode.modname .. ":key", {
 	on_place = function(itemstack, placer, pointed_thing)
 		if not placer:is_player() then return end
 
-		local pname = user:get_player_name()
+		local pname = placer:get_player_name()
 		local pos = check_node(pointed_thing, pname)
 		if not pos then return end
 
