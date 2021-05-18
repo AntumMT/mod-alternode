@@ -30,10 +30,10 @@ The `alternode:pencil` is a tool for players to set/unset the `infotext` meta va
 
 - *left-click (use):* Opens formspec to set/unset infotext meta attribute.
 
-**Wand:**
+**Key:**
 
 - *left-click (use):* Sets/Unsets user as owner.
-- *right-click (place):* Checks owner status & outputs to chat log.
+- *right-click (place):* Prints owner status to chat log.
 
 ### Licensing:
 
