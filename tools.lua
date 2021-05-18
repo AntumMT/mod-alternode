@@ -1,4 +1,9 @@
 
+--- Tools
+--
+--  @module tools.lua
+
+
 local S = core.get_translator(alternode.modname)
 
 local use_s_protect = core.global_exists("s_protect")
@@ -62,8 +67,9 @@ end
 --- Admin tool to retrieve node node coordinates, name, & some select meta info.
 --
 --  @craftitem alternode:infostick
---  @use
---  @place
+--  @use Opens formspec to retrieve & set/unset meta attributes.
+--  @place Print node coordinates, name, & some select meta info.
+--  @image alternode_infostick.png
 core.register_craftitem(alternode.modname .. ":infostick", {
 	description = S("Tool for retrieving information about a node"),
 	short_description = S("Info Stick"),
@@ -108,8 +114,8 @@ core.register_craftitem(alternode.modname .. ":infostick", {
 --- Player tool to alter *infotext* meta value.
 --
 --  @craftitem alternode:pencil
---  @use
---  @place
+--  @use Opens formspec to set/unset infotext meta attribute.
+--  @image alternode_pencil.png
 core.register_craftitem(alternode.modname .. ":pencil", {
 	description = S("Tool for editing node infotext"),
 	short_description = S("Pencil"),
@@ -138,8 +144,9 @@ core.register_craftitem(alternode.modname .. ":pencil", {
 --- Player tool to set/unset *owner* meta value.
 --
 --  @craftitem alternode:key
---  @use
---  @place
+--  @use Sets/Unsets user as owner.
+--  @place Prints owner status to chat log.
+--  @image alternode_key.png
 core.register_craftitem(alternode.modname .. ":key", {
 	description = S("Tool for setting node owner"),
 	short_description = S("Node Key"),
