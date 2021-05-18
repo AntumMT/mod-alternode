@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Alternode Mod for Minetest</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>alternode</h1>
+
+
+<ul>
+  <li><a href="../api.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Chat_Commands">Chat Commands</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/api.lua.html">api.lua</a></li>
+  <li><strong>commands.lua</strong></li>
+  <li><a href="../modules/formspec.lua.html">formspec.lua</a></li>
+  <li><a href="../modules/tools.lua.html">tools.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>commands.lua</code></h1>
+<p>Chat Commands</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Chat_Commands">Chat Commands</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#getmeta">getmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;</a></td>
+	<td class="summary">Retrieves node meta value of a given key.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#setmeta">setmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt; &lt;value&gt;</a></td>
+	<td class="summary">Sets node meta value of a given key.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#unsetmeta">unsetmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;</a></td>
+	<td class="summary">Unsets node meta value of a given key.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Chat_Commands"></a>Chat Commands</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "getmeta"></a>
+    <strong>getmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;</strong>
+    </dt>
+    <dd>
+    Retrieves node meta value of a given key.
+
+    </ul>
+    </ul>
+    </ul>
+
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         X-coordinate of node.
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         Y-coordinate of node.
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">number</span></span>
+         Z-coordinate of node.
+        </li>
+        <li><span class="parameter">key</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Key to be checked.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "setmeta"></a>
+    <strong>setmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt; &lt;value&gt;</strong>
+    </dt>
+    <dd>
+    Sets node meta value of a given key.
+
+    </ul>
+    </ul>
+    </ul>
+
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         X-coordinate of node.
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         Y-coordinate of node.
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">number</span></span>
+         Z-coordinate of node.
+        </li>
+        <li><span class="parameter">key</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Key to be set.
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Value to be set for <code>key</code>.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "unsetmeta"></a>
+    <strong>unsetmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;</strong>
+    </dt>
+    <dd>
+    Unsets node meta value of a given key.
+
+    </ul>
+    </ul>
+    </ul>
+
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         X-coordinate of node.
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         Y-coordinate of node.
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">number</span></span>
+         Z-coordinate of node.
+        </li>
+        <li><span class="parameter">key</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.3/manual.html#6.4">string</a></span>
+         Key to be unset.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-05-17 18:49:08 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
