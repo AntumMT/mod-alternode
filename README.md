@@ -49,6 +49,6 @@ The `alternode:key` is a tool that will set/unset the player wielding it as owne
 
 - [Forum](https://forum.minetest.net/viewtopic.php?t=26667)
 - [Git repo](http://github.com/AntumMT/mod-alternode)
-- [API](https://antummt.github.io/mod-alternode/docs/api.html)
-- [Changelog](CHANGES.txt)
+- [Reference](https://antummt.github.io/mod-alternode/docs/api.html)
+- [Changelog](changelog.txt)
 - [TODO](TODO.txt)
