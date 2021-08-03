@@ -1,4 +1,6 @@
-# Translated by:
+# textdomain:alternode
+
+# Translators:
 
 
 <x> <y> <z> <key>=

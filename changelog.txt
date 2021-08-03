@@ -1,25 +1,34 @@
 
-1.3
+next
+----
+- added "textdomain" line to localization template
+
+
+v1.3
+----
 - renamed "alternode:infostick" item to "alternode:wand" & changed texture
 - fixed broken pencil & key
 - fixed key craft recipe & removed wand recipe
 
 
-1.2
+v1.2
+----
 - infostick:
-  - left-click (use) shows formspec
-  - right-click (place) prints pos, name, & select meta info from node
-  - formspec can be used to view, set, & unset meta info
+	- left-click (use) shows formspec
+	- right-click (place) prints pos, name, & select meta info from node
+	- formspec can be used to view, set, & unset meta info
 - pencil item can be used to change or unset node "infotext" meta value
 - key item can be used to set/unset node "owner" meta value
 
 
-1.1
+v1.1
+----
 - added alternode.unset method to unset node meta data
 - added /unsetmeta chat command
 
 
-1.0
+v1.0
+----
 - initial release
 - added alternode:infostick to get position & some meta info from nodes
 - added alternode.get method to retrieve meta value of a node
