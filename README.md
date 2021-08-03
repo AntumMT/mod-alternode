@@ -47,6 +47,7 @@ The `alternode:key` is a tool that will set/unset the player wielding it as owne
 
 ### Links:
 
+- [![ContentDB](https://content.minetest.net/packages/AntumDeluge/alternode/shields/title/)](https://content.minetest.net/packages/AntumDeluge/alternode/)
 - [Forum](https://forum.minetest.net/viewtopic.php?t=26667)
 - [Git repo](http://github.com/AntumMT/mod-alternode)
 - [Reference](https://antummt.github.io/mod-alternode/docs/api.html)
