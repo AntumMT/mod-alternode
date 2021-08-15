@@ -1,0 +1,53 @@
+# textdomain:alternode
+
+# Translators: Jordan Irwin (AntumDeluge)
+
+
+<x> <y> <z> <key>=<x> <y> <z> <clave>
+<x> <y> <z> <key> <value>=<x> <y> <z> <clave> <valor>
+Set meta data of a node=Establecer datos de meta de un nodo
+Unset meta data of a node=Eliminar datos de meta de un nodo
+Retrieve meta data of a node=Recoger datos de meta de un nodo
+You must supply proper coordinates=Debe proporcionar coordenadas correctas
+You must supply a key parameter=Debe proporcionar parámetro de clave
+You must supply a value parameter=Debe proporcionar parámetro de valor
+Failed to set node meta at @1,@2,@3=No se estableció el meta nodo en @1,@2,@3
+Failed to unset node meta at @1,@2,@3=No se eliminó el meta nodo en @1,@2,@3
+Set meta "@1@=@2" for node at @3,@4,@5=Se estableció "@1@=@2" para nodo en @3,@4,@5
+Unset meta "@1" for node at @2,@3,@4=Se eliminó meta "@1" para nodo en @2,@3,@4
+"@1" key value not present in node meta data="@1" valor de clave no se presenta en datos de meta nodo
+Meta value: @1@=@2=Valor de meta: @1=@2
+
+# tools
+
+Node Wand=Varita de Nodo
+Tool for retrieving & setting node meta data=Herramienta para recoger y manejar los datos de meta nodo
+You do not have privileges to use this item (missing priviliges: @1)=No tienes privilegios para utilizar este herramienta (privilegios que faltan: @1)
+This item only works on nodes=Este herramienta solo funciona en nodos
+Pos: x@=@1, y@=@2, z@=@3; Name: @4; Select meta info:=Pos: x@=@1, y@=@2, z@=@3; Nombre: @4; Meta info específica:
+Key:=Clave:
+Value:=Valor:
+Get=Recoger
+Set=Establecer
+Unset=Eliminar
+Key "@1" has been unset=Se eliminó el clave "@1"
+Key "@1" has been set to "@2"=Se estacleció el clave "@1" a "@2"
+Key cannot be empty=Clave no puede estar vacía
+Value cannot be empty=Valor no puede estar vacía
+Key "@1" is not set=Clave "@1" no está establecida
+
+Node Pencil=Lápiz de Nodo
+Tool for editing node infotext=Herramienta para modificar texto informativo de nodo
+You cannot alter nodes in areas you do not own=No puedes modificar nodos en áreas que no posees
+Infotext=Texto informativo
+Write=Escribir
+Erase=Borrar
+
+Node Key=Llave de Nodo
+Tool for setting node owner=Herramienta para establecer posesión de nodo
+You cannot take ownership of a node owned by @1=No puedes poseer nodos poseídos por @1
+You cannot take ownership of nodes in areas you do not own=No puedes poseer nodos en áreas que no posees
+You no longer own this node=Ahora no posees este nodo
+You now own this node=Ahora posees este nodo
+This node is owned by @1=@1 posea este nodo
+This node is unowned=No es poseado este nodo

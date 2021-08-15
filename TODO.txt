@@ -4,4 +4,4 @@ TODO:
 - clean up code
 - support other protection mods
 - need to somehow escape formspec strings
-- add Spanish translation
+- fix owning nodes in owned areas with simple_protection
