@@ -41,6 +41,11 @@ for vinfo in $(git tag -l --sort=-v:refname | grep "^v[0-9]"); do
 		f_config="${d_config}/config.ld"
 	fi
 
+	if test ! -f "${f_config}"; then
+		echo -e "\nLDoc config not available for ${vinfo}, skipping build ..."
+		continue
+	fi
+
 	"${cmd_ldoc}" --UNSAFE_NO_SANDBOX --multimodule -c "${f_config}" -d "${d_temp}" "${d_root}"; retval=$?
 	if test ${retval} -ne 0; then
 		echo -e "\nERROR: doc build for ${vinfo} failed!"
