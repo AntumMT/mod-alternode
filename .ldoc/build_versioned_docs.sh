@@ -46,6 +46,11 @@ for vinfo in $(git tag -l --sort=-v:refname | grep "^v[0-9]"); do
 		continue
 	fi
 
+	# show version info
+	for html in $(find "${d_temp}" -type f -name "*.html"); do
+		sed -i -e "s|^<h1>Alternode</h1>$|<h1>Alternode <span style=\"font-size:12pt;\">(${vinfo})</span></h1>|" "${html}"
+	done
+
 	"${cmd_ldoc}" --UNSAFE_NO_SANDBOX --multimodule -c "${f_config}" -d "${d_temp}" "${d_root}"; retval=$?
 	if test ${retval} -ne 0; then
 		echo -e "\nERROR: doc build for ${vinfo} failed!"

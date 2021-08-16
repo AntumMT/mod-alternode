@@ -30,7 +30,7 @@ ldoc --UNSAFE_NO_SANDBOX --multimodule -c "${f_config}" -d "${d_export}/${vinfo}
 # show version info
 echo -e "\nfinding ${vinfo}..."
 for html in $(find "${d_export}/${vinfo}" -type f -name "*.html"); do
-	sed -i -e "s|^<h1>Sounds</h1>$|<h1>Sounds <span style=\"font-size:12pt;\">(${vinfo})</span></h1>|" "${html}"
+	sed -i -e "s|^<h1>Alternode</h1>$|<h1>Alternode <span style=\"font-size:12pt;\">(${vinfo})</span></h1>|" "${html}"
 done
 
 # cleanup
