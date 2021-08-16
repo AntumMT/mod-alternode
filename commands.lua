@@ -1,7 +1,7 @@
 
 --- Chat Commands
 --
---  @module commands.lua
+--  @topic commands
 
 
 local S = core.get_translator(alternode.modname)

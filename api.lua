@@ -1,7 +1,7 @@
 
---- API
+--- Alternode API
 --
--- @module api.lua
+-- @topic api
 
 
 local S = core.get_translator(alternode.modname)

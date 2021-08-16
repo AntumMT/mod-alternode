@@ -1,7 +1,7 @@
 
 --- Formspecs
 --
---  @module formspec.lua
+--  @topic formspec
 
 
 local S = core.get_translator(alternode.modname)
@@ -19,9 +19,9 @@ local misc = dofile(alternode.modpath .. "/misc_functions.lua")
 --  TODO: add fields for get, set, & unset meta data
 --
 --  @function alternode.get_wand_formspec
---  @param pos
+--  @tparam vector pos Pointed position.
 --  @param node
---  @param player
+--  @tparam ObjectRef player Player to whom formspec is shown.
 --  @treturn string Formspec formatted string.
 function alternode.get_wand_formspec(pos, node, player, key, msg)
 	local nmeta = core.get_meta(pos)
@@ -63,7 +63,7 @@ end
 --- Retrieves formspec layout for `alternode:pencil` item.
 --
 --  @function alternode.get_pencil_formspec
---  @param pos
+--  @tparam vector pos Pointed position.
 --  @treturn string Formspec formatted string.
 function alternode.get_pencil_formspec(pos)
 	local infotext = core.get_meta(pos):get_string("infotext")

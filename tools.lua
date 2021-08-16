@@ -1,7 +1,7 @@
 
 --- Tools
 --
---  @module tools.lua
+--  @topic tools
 
 
 local S = core.get_translator(alternode.modname)
@@ -71,7 +71,7 @@ end
 --  @craftitem alternode:wand
 --  @use Opens formspec to retrieve & set/unset meta attributes.
 --  @place Print node coordinates, name, & some select meta info.
---  @image alternode_wand.png
+--  @img alternode_wand.png
 core.register_craftitem(alternode.modname .. ":wand", {
 	description = S("Tool for retrieving & setting node meta data"),
 	short_description = S("Node Wand"),
@@ -118,7 +118,7 @@ core.register_alias(alternode.modname .. ":infostick", alternode.modname .. ":wa
 --
 --  @craftitem alternode:pencil
 --  @use Opens formspec to set/unset infotext meta attribute.
---  @image alternode_pencil.png
+--  @img alternode_pencil.png
 core.register_craftitem(alternode.modname .. ":pencil", {
 	description = S("Tool for editing node infotext"),
 	short_description = S("Node Pencil"),
@@ -149,7 +149,7 @@ core.register_craftitem(alternode.modname .. ":pencil", {
 --  @craftitem alternode:key
 --  @use Sets/Unsets user as owner.
 --  @place Prints owner status to chat log.
---  @image alternode_key.png
+--  @img alternode_key.png
 core.register_craftitem(alternode.modname .. ":key", {
 	description = S("Tool for setting node owner"),
 	short_description = S("Node Key"),
