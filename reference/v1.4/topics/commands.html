@@ -25,7 +25,7 @@
 
 <div id="navigation">
 <br/>
-<h1>Alternode <span style="font-size:12pt;">(v1.4-dev)</span></h1>
+<h1>Alternode <span style="font-size:12pt;">(v1.4)</span></h1>
 
 
 <ul>
@@ -34,14 +34,14 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Functions">Functions</a></li>
+<li><a href="#Chat_Commands">Chat Commands</a></li>
 </ul>
 
 
 <h2>Topics</h2>
 <ul class="">
-  <li><strong>api</strong></li>
-  <li><a href="../topics/commands.html">commands</a></li>
+  <li><a href="../topics/api.html">api</a></li>
+  <li><strong>commands</strong></li>
   <li><a href="../topics/formspec.html">formspec</a></li>
   <li><a href="../topics/tools.html">tools</a></li>
   <li><a href="../topics/crafting.html">crafting</a></li>
@@ -51,25 +51,25 @@
 
 <div id="content">
 
-<h1>Topic <code>api</code></h1>
-<p>Alternode API</p>
+<h1>Topic <code>commands</code></h1>
+<p>Chat Commands</p>
 <p>
 
 </p>
 
 
-<h2><a href="#Functions">Functions</a></h2>
+<h2><a href="#Chat_Commands">Chat Commands</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#alternode.get">alternode.get (pos, key)</a></td>
+	<td class="name" nowrap><a href="#getmeta">getmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;</a></td>
 	<td class="summary">Retrieves node meta value of a given key.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#alternode.set">alternode.set (pos, key, value)</a></td>
+	<td class="name" nowrap><a href="#setmeta">setmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt; &lt;value&gt;</a></td>
 	<td class="summary">Sets node meta value of a given key.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#alternode.unset">alternode.unset (pos, key)</a></td>
+	<td class="name" nowrap><a href="#unsetmeta">unsetmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;</a></td>
 	<td class="summary">Unsets node meta value of a given key.</td>
 	</tr>
 </table>
@@ -78,12 +78,12 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+    <h2 class="section-header "><a name="Chat_Commands"></a>Chat Commands</h2>
 
     <dl class="function">
     <dt>
-    <a name = "alternode.get"></a>
-    <strong>alternode.get (pos, key)</strong>
+    <a name = "getmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;"></a>
+    <strong>getmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;</strong>
     </dt>
     <dd>
     Retrieves node meta value of a given key.
@@ -100,32 +100,33 @@
     </ul>
     </ul>
 
-    <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">pos</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Position of node.
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         X-coordinate of node.
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         Y-coordinate of node.
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">number</span></span>
+         Z-coordinate of node.
         </li>
         <li><span class="parameter">key</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
-         Key to check for in node meta.
+         Key to be checked.
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
-        Value of key.
-    </ol>
 
 
 
 
 </dd>
     <dt>
-    <a name = "alternode.set"></a>
-    <strong>alternode.set (pos, key, value)</strong>
+    <a name = "setmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt; &lt;value&gt;"></a>
+    <strong>setmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt; &lt;value&gt;</strong>
     </dt>
     <dd>
     Sets node meta value of a given key.
@@ -142,11 +143,18 @@
     </ul>
     </ul>
 
-    <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">pos</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Position of node.
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         X-coordinate of node.
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         Y-coordinate of node.
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">number</span></span>
+         Z-coordinate of node.
         </li>
         <li><span class="parameter">key</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
@@ -158,20 +166,14 @@
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        <code>true</code> if succeeded.
-    </ol>
 
 
 
 
 </dd>
     <dt>
-    <a name = "alternode.unset"></a>
-    <strong>alternode.unset (pos, key)</strong>
+    <a name = "unsetmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;"></a>
+    <strong>unsetmeta &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;key&gt;</strong>
     </dt>
     <dd>
     Unsets node meta value of a given key.
@@ -188,11 +190,18 @@
     </ul>
     </ul>
 
-    <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">pos</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Position of node.
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">number</span></span>
+         X-coordinate of node.
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">number</span></span>
+         Y-coordinate of node.
+        </li>
+        <li><span class="parameter">z</span>
+            <span class="types"><span class="type">number</span></span>
+         Z-coordinate of node.
         </li>
         <li><span class="parameter">key</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
@@ -200,12 +209,6 @@
         </li>
     </ul>
 
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">bool</span></span>
-        <code>true</code> if succeeded.
-    </ol>
 
 
 
@@ -218,7 +221,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/AntumDeluge/LDoc/tree/custom">LDoc 1.4.6-antum-dev</a></i>
-<i style="float:right;">Last updated 2021-08-16 08:51:37 </i>
+<i style="float:right;">Last updated 2021-08-18 14:10:38 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
